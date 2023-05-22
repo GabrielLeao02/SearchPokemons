@@ -4,6 +4,13 @@ import 'package:flutter/material.dart';
 
 void main() async {
   Injector()();
+  runApp(Center(
+    child: Image.asset(
+      'assets/pokemon-png-logo.png',
+      width: 100,
+      height: 60,
+    ),
+  ));
   runApp(const App());
 }
 

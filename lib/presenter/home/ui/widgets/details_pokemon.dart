@@ -6,6 +6,8 @@ import 'package:pokemon/presenter/home/bloc/pokemon_specie_bloc.dart';
 import 'package:pokemon/presenter/home/ui/widgets/flavor_text.dart';
 import 'package:pokemon/presenter/home/ui/widgets/gender_rate_date.dart';
 import 'package:pokemon/presenter/home/ui/widgets/information_pokemon.dart';
+import 'package:pokemon/presenter/home/ui/widgets/pokemon_name.dart';
+import 'package:pokemon/presenter/home/ui/widgets/pokemons_image_detail.dart';
 
 class DetailsPokemon extends StatefulWidget {
   final PokemonDetails item;
@@ -79,31 +81,8 @@ class _DetailsPokemonState extends State<DetailsPokemon> {
                 const SizedBox(
                   height: 50,
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(15.0),
-                  child: Text(
-                    widget.item.name!.substring(0, 1).toUpperCase() +
-                        widget.item.name!.substring(1).toLowerCase(),
-                    style: const TextStyle(
-                      fontSize: 35,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                ),
-                Container(
-                  height: 200,
-                  width: 250,
-                  decoration: BoxDecoration(
-                    color: const Color.fromRGBO(242, 242, 242, 1),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  alignment: Alignment.center,
-                  child: Image.network(
-                    widget.item.sprites!.backDefault!,
-                    fit: BoxFit.fill,
-                    height: 150,
-                  ),
-                ),
+                PokemonName(widget: widget),
+                PokemonImageDetail(widget: widget),
                 FlavorText(pokemonSpecieBloc: pokemonSpecieBloc),
                 _cardDetails()
               ],
