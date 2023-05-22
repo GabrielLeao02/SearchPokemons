@@ -41,12 +41,32 @@ class _DetalhesPokemonState extends State<DetalhesPokemon> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: Center(
-            child: Image.asset(
-              'assets/pokemon-png-logo.png',
-              width: 100,
-              height: 60,
-            ),
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Center(
+                child: Image.asset(
+                  'assets/pokemon-png-logo.png',
+                  width: 100,
+                  height: 60,
+                ),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: const Text(
+                  'Voltar',
+                  style: TextStyle(
+                    color: Color(0xffFFCC33), // Defina a cor desejada
+                    fontSize: 16, // Defina o tamanho de fonte desejado
+                    fontWeight:
+                        FontWeight.bold, // Defina o peso da fonte desejado
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
         body: ListView(
@@ -112,7 +132,7 @@ class _DetalhesPokemonState extends State<DetalhesPokemon> {
                     children: [
                       const InformationPokemon(
                         title: "Height",
-                        color:  Color(0xffFFCC33),
+                        color: Color(0xffFFCC33),
                       ),
                       InformationPokemon(
                         title: "$height kg",
@@ -184,5 +204,3 @@ class _DetalhesPokemonState extends State<DetalhesPokemon> {
     );
   }
 }
-
-
