@@ -15,5 +15,5 @@
 
    flutter pub get
 
-2. Start .
+2. Start.
    flutter run
