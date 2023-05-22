@@ -12,8 +12,12 @@
 ## Getting started
 
 1. Install dependencies.
-
+   ```bash
    flutter pub get
+   ```
 
 2. Start.
+   ```bash
    flutter run
+   ```
+   
