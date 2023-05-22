@@ -9,11 +9,11 @@ import 'package:pokemon/share/base/datasource/data_source.dart';
 
 class DioMock extends Mock implements Dio {}
 
-class PokemonsDataSourceImplMock implements PokemonListDataSource {
+class PokemonListDataSourceImplMock implements PokemonListDataSource {
   // ignore: unused_field
   final Dio _httpFacade;
 
-  PokemonsDataSourceImplMock(this._httpFacade);
+  PokemonListDataSourceImplMock(this._httpFacade);
 
   @override
   Future<List<PokemonModel>> call(
@@ -44,7 +44,7 @@ void main() {
 
   setUp(() async {
     dio = DioMock();
-    datasource = PokemonsDataSourceImplMock(dio);
+    datasource = PokemonListDataSourceImplMock(dio);
     pokemonsRepository = PokemonsRepositoryImplMock(datasource);
   });
 
