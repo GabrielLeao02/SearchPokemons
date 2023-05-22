@@ -1,10 +1,10 @@
-class PokemonModel {
+class Pokemon {
   String? name;
   String? url;
 
-  PokemonModel({this.name, this.url});
+  Pokemon({this.name, this.url});
 
-  PokemonModel.fromJson(Map<String, dynamic> json) {
+  Pokemon.fromJson(Map<String, dynamic> json) {
     name = json['name'];
     url = json['url'];
   }

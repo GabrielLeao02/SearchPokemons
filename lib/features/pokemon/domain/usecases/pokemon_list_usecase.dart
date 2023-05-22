@@ -1,8 +1,8 @@
-import 'package:pokemon/features/pokemon/data/model/pokemon_model.dart';
+import 'package:pokemon/features/pokemon/domain/entities/pokemon.dart';
 import 'package:pokemon/features/pokemon/domain/repositories/pokemons_repository.dart';
 
 abstract class PokemonListUseCase {
-  Future<List<PokemonModel>> call();
+  Future<List<Pokemon>> call();
 }
 
 class PokemonListUseCaseImpl implements PokemonListUseCase {
@@ -11,5 +11,5 @@ class PokemonListUseCaseImpl implements PokemonListUseCase {
   PokemonListUseCaseImpl(this.pokemonsRepository);
 
   @override
-  Future<List<PokemonModel>> call() async => pokemonsRepository();
+  Future<List<Pokemon>> call() async => pokemonsRepository();
 }

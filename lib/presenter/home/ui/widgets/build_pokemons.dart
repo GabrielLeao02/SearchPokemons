@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:pokemon/features/pokemon/data/model/pokemon_details_model.dart';
+import 'package:pokemon/features/pokemon/domain/entities/pokemon_details.dart';
 import 'package:pokemon/presenter/home/ui/widgets/card_pokemon.dart';
 
 class BuildPokemons extends StatelessWidget {
-  final List<PokemonDetailsModel> list;
+  final List<PokemonDetails> list;
 
   const BuildPokemons({Key? key, required this.list}) : super(key: key);
 

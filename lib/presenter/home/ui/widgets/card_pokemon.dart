@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pokemon/features/pokemon/data/model/pokemon_details_model.dart';
+import 'package:pokemon/features/pokemon/domain/entities/pokemon_details.dart';
 import 'package:pokemon/presenter/home/ui/widgets/details_pokemon.dart';
 
 class CardPokemon extends StatelessWidget {
@@ -8,7 +8,7 @@ class CardPokemon extends StatelessWidget {
     required this.item,
   });
 
-  final PokemonDetailsModel item;
+  final PokemonDetails item;
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +55,7 @@ class CardPokemon extends StatelessWidget {
   }
 
   void navigateToDetalhesScreen(
-      BuildContext context, PokemonDetailsModel item) {
+      BuildContext context, PokemonDetails item) {
     Navigator.push(context,
         MaterialPageRoute(builder: (context) => DetailsPokemon(item: item)));
   }

@@ -1,8 +1,8 @@
-import 'package:pokemon/features/pokemon/data/model/pokemon_details_model.dart';
+import 'package:pokemon/features/pokemon/domain/entities/pokemon_details.dart';
 import 'package:pokemon/features/pokemon/domain/repositories/pokemon_repository.dart';
 
 abstract class PokemonUseCase {
-  Future<PokemonDetailsModel> call(Map<String, dynamic>? param);
+  Future<PokemonDetails> call(Map<String, dynamic>? param);
 }
 
 class PokemonUseCaseImpl implements PokemonUseCase {
@@ -11,5 +11,5 @@ class PokemonUseCaseImpl implements PokemonUseCase {
   PokemonUseCaseImpl(this.pokemonsRepository);
 
   @override
-  Future<PokemonDetailsModel> call(Map<String, dynamic>? param) async => pokemonsRepository(param);
+  Future<PokemonDetails> call(Map<String, dynamic>? param) async => pokemonsRepository(param);
 }

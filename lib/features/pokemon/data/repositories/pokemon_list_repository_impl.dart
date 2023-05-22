@@ -1,6 +1,6 @@
 import 'package:pokemon/features/pokemon/data/datasource/pokemon_list_datasource.dart';
-import 'package:pokemon/features/pokemon/data/model/pokemon_model.dart';
-import 'package:pokemon/features/pokemon/data/model/pokemons_model.dart';
+import 'package:pokemon/features/pokemon/domain/entities/pokemon.dart';
+import 'package:pokemon/features/pokemon/domain/entities/pokemon_list_model.dart';
 import 'package:pokemon/features/pokemon/domain/repositories/pokemons_repository.dart';
 
 class PokemonListRepositoryImpl implements PokemonListRepository {
@@ -9,10 +9,10 @@ class PokemonListRepositoryImpl implements PokemonListRepository {
   PokemonListRepositoryImpl(this._dataSource);
 
   @override
-  Future<List<PokemonModel>> call() async {
+  Future<List<Pokemon>> call() async {
      
 
-    List<PokemonModel> result = await _dataSource( fromJson: (json) => PokemonsModel.fromJson(json).results!);
+    List<Pokemon> result = await _dataSource( fromJson: (json) => PokemonList.fromJson(json).results!);
 
     return result;
   }

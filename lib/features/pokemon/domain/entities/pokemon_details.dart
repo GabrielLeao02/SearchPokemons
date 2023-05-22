@@ -2,7 +2,7 @@ import 'package:pokemon/features/pokemon/domain/entities/abilities.dart';
 import 'package:pokemon/features/pokemon/domain/entities/species.dart';
 import 'package:pokemon/features/pokemon/domain/entities/sprites.dart';
 
-class PokemonDetailsModel {
+class PokemonDetails {
   int? height;
   int? id;
   String? name;
@@ -11,7 +11,7 @@ class PokemonDetailsModel {
   Species? species;
   List<Abilities>? abilities;
 
-  PokemonDetailsModel(
+  PokemonDetails(
       {this.height,
       this.id,
       this.name,
@@ -19,7 +19,7 @@ class PokemonDetailsModel {
       this.weight,
       this.species});
 
-  PokemonDetailsModel.fromJson(Map<String, dynamic> json) {
+  PokemonDetails.fromJson(Map<String, dynamic> json) {
     height = json['height'];
 
     id = json['id'];

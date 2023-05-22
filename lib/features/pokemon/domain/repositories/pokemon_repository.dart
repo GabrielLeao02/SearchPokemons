@@ -1,5 +1,5 @@
-import 'package:pokemon/features/pokemon/data/model/pokemon_details_model.dart';
+import 'package:pokemon/features/pokemon/domain/entities/pokemon_details.dart';
 
 abstract class PokemonRepository {
-  Future<PokemonDetailsModel> call(Map<String, dynamic>? param);
+  Future<PokemonDetails> call(Map<String, dynamic>? param);
 }

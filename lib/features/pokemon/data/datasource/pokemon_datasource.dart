@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
-import 'package:pokemon/features/pokemon/data/model/pokemon_details_model.dart';
+import 'package:pokemon/features/pokemon/domain/entities/pokemon_details.dart';
 import 'package:pokemon/share/base/datasource/data_source.dart';
 
-abstract class PokemonDataSource implements DataSource<PokemonDetailsModel> {}
+abstract class PokemonDataSource implements DataSource<PokemonDetails> {}
 
 class PokemonDataSourceeImpl implements PokemonDataSource {
   final Dio _httpFacade;
@@ -10,7 +10,7 @@ class PokemonDataSourceeImpl implements PokemonDataSource {
   PokemonDataSourceeImpl(this._httpFacade);
 
   @override
-  Future<PokemonDetailsModel> call(
+  Future<PokemonDetails> call(
       {Map<String, dynamic>? param, FromJson? fromJson}) async {
     Response response = await _httpFacade.get(param!['endPoint']);
     Map<String, dynamic> data = response.data;

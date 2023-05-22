@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import 'package:pokemon/features/pokemon/data/model/pokemon_details_model.dart';
+import 'package:pokemon/features/pokemon/domain/entities/pokemon_details.dart';
 import 'package:pokemon/features/pokemon/domain/entities/specie.dart';
 import 'package:pokemon/presenter/home/bloc/pokemon_specie_bloc.dart';
 import 'package:pokemon/presenter/home/ui/widgets/flavor_text.dart';
@@ -8,7 +8,7 @@ import 'package:pokemon/presenter/home/ui/widgets/gender_rate_date.dart';
 import 'package:pokemon/presenter/home/ui/widgets/information_pokemon.dart';
 
 class DetailsPokemon extends StatefulWidget {
-  final PokemonDetailsModel item;
+  final PokemonDetails item;
   const DetailsPokemon({Key? key, required this.item}) : super(key: key);
 
   @override

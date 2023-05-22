@@ -1,4 +1,4 @@
-import 'package:pokemon/features/pokemon/data/model/pokemon_model.dart';
+import 'package:pokemon/features/pokemon/domain/entities/pokemon.dart';
 
 abstract class Model {
   Model.fromJson(Map<String, dynamic> json);
@@ -6,28 +6,28 @@ abstract class Model {
   Map<String, dynamic> toJson();
 }
 
-class PokemonsModel extends Model {
+class PokemonList extends Model {
   int? count;
   String? next;
   String? previous;
-  List<PokemonModel>? results;
+  List<Pokemon>? results;
 
-  PokemonsModel({
+  PokemonList({
     this.count,
     this.next,
     this.previous,
     this.results,
   }) : super.fromJson({});
 
-  factory PokemonsModel.fromJson(Map<String, dynamic> json) {
-    List<PokemonModel> listPokemons = [];
-    return PokemonsModel(
+  factory PokemonList.fromJson(Map<String, dynamic> json) {
+    List<Pokemon> listPokemons = [];
+    return PokemonList(
       count: json['count'],
       next: json['next'],
       previous: json['previous'],
       results: json['results'] != null
-          ? List<PokemonModel>.from(
-              json['results'].map((x) => PokemonModel.fromJson(x)),
+          ? List<Pokemon>.from(
+              json['results'].map((x) => Pokemon.fromJson(x)),
             )
           : listPokemons,
     );

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import 'package:pokemon/features/pokemon/data/model/pokemon_details_model.dart';
+import 'package:pokemon/features/pokemon/domain/entities/pokemon_details.dart';
 import 'package:pokemon/presenter/home/bloc/pokemon_bloc.dart';
 import 'package:pokemon/presenter/home/ui/widgets/build_pokemons.dart';
 import 'package:pokemon/presenter/home/ui/widgets/connection_fail.dart';
@@ -34,7 +34,7 @@ class _HomeState extends State<Home> {
       stream: pokemonBloc.stream,
       builder: (context, snapshot) {
         if (snapshot.data == PokemonEvent.sucess) {
-          return StreamBuilder<List<PokemonDetailsModel>>(
+          return StreamBuilder<List<PokemonDetails>>(
             initialData: const [],
             stream: pokemonBloc.listPokemonsStrem,
             builder: (context, snapshot) {
