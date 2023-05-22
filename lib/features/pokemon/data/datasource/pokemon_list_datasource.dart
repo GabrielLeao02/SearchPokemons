@@ -2,13 +2,13 @@ import 'package:dio/dio.dart';
 import 'package:pokemon/features/pokemon/data/model/pokemon_model.dart';
 import 'package:pokemon/share/base/datasource/data_source.dart';
 
-abstract class PokemonsDataSource implements DataSource<List<PokemonModel>> {}
+abstract class PokemonListDataSource implements DataSource<List<PokemonModel>> {}
 
-class PokemonsDataSourceeImpl implements PokemonsDataSource {
+class PokemonListDataSourceeImpl implements PokemonListDataSource {
   final endPoint = 'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=50';
   final Dio _httpFacade;
 
-  PokemonsDataSourceeImpl(this._httpFacade);
+  PokemonListDataSourceeImpl(this._httpFacade);
 
   @override
   Future<List<PokemonModel>> call(

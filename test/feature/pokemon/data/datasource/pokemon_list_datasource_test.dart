@@ -1,13 +1,13 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:pokemon/features/pokemon/data/datasource/pokemons_datasource.dart';
+import 'package:pokemon/features/pokemon/data/datasource/pokemon_list_datasource.dart';
 import 'package:pokemon/features/pokemon/data/model/pokemon_model.dart';
 import 'package:pokemon/share/base/datasource/data_source.dart';
 
 class DioMock extends Mock implements Dio {}
 
-class PokemonsDataSourceImplMock implements PokemonsDataSource {
+class PokemonsDataSourceImplMock implements PokemonListDataSource {
   // ignore: unused_field
   final Dio _httpFacade;
 
@@ -24,7 +24,7 @@ class PokemonsDataSourceImplMock implements PokemonsDataSource {
 
 void main() {
 
-  late PokemonsDataSource datasource;
+  late PokemonListDataSource datasource;
   late Dio dio;
 
   setUp(() async {

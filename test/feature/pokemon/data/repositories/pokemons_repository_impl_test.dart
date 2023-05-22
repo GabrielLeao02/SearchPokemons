@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:pokemon/features/pokemon/data/datasource/pokemons_datasource.dart';
+import 'package:pokemon/features/pokemon/data/datasource/pokemon_list_datasource.dart';
 import 'package:pokemon/features/pokemon/data/model/pokemon_model.dart';
 import 'package:pokemon/features/pokemon/data/model/pokemons_model.dart';
 import 'package:pokemon/features/pokemon/domain/repositories/pokemons_repository.dart';
@@ -9,7 +9,7 @@ import 'package:pokemon/share/base/datasource/data_source.dart';
 
 class DioMock extends Mock implements Dio {}
 
-class PokemonsDataSourceImplMock implements PokemonsDataSource {
+class PokemonsDataSourceImplMock implements PokemonListDataSource {
   // ignore: unused_field
   final Dio _httpFacade;
 
@@ -22,8 +22,8 @@ class PokemonsDataSourceImplMock implements PokemonsDataSource {
   }
 }
 
-class PokemonsRepositoryImplMock implements PokemonsRepository {
-  final PokemonsDataSource _dataSource;
+class PokemonsRepositoryImplMock implements PokemonListRepository {
+  final PokemonListDataSource _dataSource;
 
   PokemonsRepositoryImplMock(this._dataSource);
 
@@ -38,8 +38,8 @@ class PokemonsRepositoryImplMock implements PokemonsRepository {
 }
 
 void main() {
-  late PokemonsDataSource datasource;
-  late PokemonsRepository pokemonsRepository;
+  late PokemonListDataSource datasource;
+  late PokemonListRepository pokemonsRepository;
   late Dio dio;
 
   setUp(() async {

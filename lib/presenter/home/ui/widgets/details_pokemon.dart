@@ -7,15 +7,15 @@ import 'package:pokemon/presenter/home/ui/widgets/flavor_text.dart';
 import 'package:pokemon/presenter/home/ui/widgets/gender_rate_date.dart';
 import 'package:pokemon/presenter/home/ui/widgets/information_pokemon.dart';
 
-class DetalhesPokemon extends StatefulWidget {
+class DetailsPokemon extends StatefulWidget {
   final PokemonDetailsModel item;
-  const DetalhesPokemon({Key? key, required this.item}) : super(key: key);
+  const DetailsPokemon({Key? key, required this.item}) : super(key: key);
 
   @override
-  State<DetalhesPokemon> createState() => _DetalhesPokemonState();
+  State<DetailsPokemon> createState() => _DetailsPokemonState();
 }
 
-class _DetalhesPokemonState extends State<DetalhesPokemon> {
+class _DetailsPokemonState extends State<DetailsPokemon> {
   late PokemonSpecieBloc pokemonSpecieBloc;
   final themeData = ThemeData(
     colorScheme: const ColorScheme.light(

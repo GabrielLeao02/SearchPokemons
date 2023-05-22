@@ -1,9 +1,8 @@
 import 'dart:async';
-import 'package:flutter/material.dart';
 import 'package:pokemon/features/pokemon/data/model/pokemon_details_model.dart';
 import 'package:pokemon/features/pokemon/data/model/pokemon_model.dart';
 import 'package:pokemon/features/pokemon/domain/usecases/pokemon_usecase.dart';
-import 'package:pokemon/features/pokemon/domain/usecases/pokemons_usecase.dart';
+import 'package:pokemon/features/pokemon/domain/usecases/pokemon_list_usecase.dart';
 
 enum PokemonEvent {
   loading,
@@ -13,7 +12,7 @@ enum PokemonEvent {
 
 class PokemonBloc {
   final PokemonUseCase pokemonUseCase;
-  final PokemonsUseCase pokemonsUseCase;
+  final PokemonListUseCase pokemonsUseCase;
   late List<PokemonModel> pokemonModel;
   late List<PokemonDetailsModel> pokemonDetailsModel = [];
 
@@ -40,7 +39,7 @@ class PokemonBloc {
 
         pokemonDetailsModel.add(details);
         controllerListPokemons.sink.add(pokemonDetailsModel);
-        debugPrint(details.species!.url.toString());
+       
         if (pokemonDetailsModel.isNotEmpty) {
           controller.sink.add(PokemonEvent.sucess);
         }
