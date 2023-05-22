@@ -1,22 +1,9 @@
-import 'package:dio/dio.dart';
 import 'package:pokemon/dependency_injection/share/injector.dart';
-import 'package:pokemon/features/pokemon/data/datasource/pokemons_species.dart';
-import 'package:pokemon/features/pokemon/domain/entities/specie.dart';
 import 'package:pokemon/presenter/home/ui/home.dart';
 import 'package:flutter/material.dart';
 
 void main() async {
   Injector()();
-  PokemonsSpecieDataSourceImpl pokemonsSpecieDataSourceImpl =
-      PokemonsSpecieDataSourceImpl(Dio());
-  Specie specie = await pokemonsSpecieDataSourceImpl.call(
-      param: {'endPoint': 'https://pokeapi.co/api/v2/pokemon-species/1/'},
-      fromJson: (json) => Specie.fromJson(json));
-  final mappedEntries = specie.flavorTextEntries?.map((entry) => entry.flavorText.toString()).toList();
-
-debugPrint(mappedEntries.toString());
-
-
   runApp(const App());
 }
 
