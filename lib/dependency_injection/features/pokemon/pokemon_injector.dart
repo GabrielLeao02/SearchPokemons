@@ -17,11 +17,22 @@ import 'package:pokemon/presenter/home/bloc/pokemon_specie_bloc.dart';
 
 class PokemonInjector {
   void call() {
+    pokemonListInjector();
     pokemonInjector();
-    pokemonsInjector();
     pokemonsBlocInjector();
     pokemonSpecieInjector();
     pokemonsSpecieBlocInjector();
+  }
+
+  void pokemonListInjector() {
+    GetIt.I.registerFactory<PokemonListDataSource>(
+        () => PokemonListDataSourceeImpl(GetIt.I<Dio>()));
+
+    GetIt.I.registerFactory<PokemonListRepository>(
+        () => PokemonListRepositoryImpl(GetIt.I<PokemonListDataSource>()));
+
+    GetIt.I.registerFactory<PokemonListUseCase>(
+        () => PokemonListUseCaseImpl(GetIt.I<PokemonListRepository>()));
   }
 
   void pokemonInjector() {
@@ -35,17 +46,6 @@ class PokemonInjector {
 
     GetIt.I.registerFactory<PokemonUseCase>(
         () => PokemonUseCaseImpl(GetIt.I<PokemonRepository>()));
-  }
-
-  void pokemonsInjector() {
-    GetIt.I.registerFactory<PokemonListDataSource>(
-        () => PokemonListDataSourceeImpl(GetIt.I<Dio>()));
-
-    GetIt.I.registerFactory<PokemonListRepository>(
-        () => PokemonListRepositoryImpl(GetIt.I<PokemonListDataSource>()));
-
-    GetIt.I.registerFactory<PokemonListUseCase>(
-        () => PokemonListUseCaseImpl(GetIt.I<PokemonListRepository>()));
   }
 
   void pokemonSpecieInjector() {
