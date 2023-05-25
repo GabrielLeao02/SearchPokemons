@@ -2,8 +2,8 @@ import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:pokemon/features/pokemon/data/datasource/pokemon_list_datasource.dart';
-import 'package:pokemon/features/pokemon/data/model/pokemon_model.dart';
-import 'package:pokemon/features/pokemon/data/model/pokemons_model.dart';
+import 'package:pokemon/features/pokemon/domain/entities/pokemon.dart';
+import 'package:pokemon/features/pokemon/domain/entities/pokemon_list_model.dart';
 import 'package:pokemon/features/pokemon/domain/repositories/pokemons_repository.dart';
 import 'package:pokemon/features/pokemon/domain/usecases/pokemon_list_usecase.dart';
 import 'package:pokemon/share/base/datasource/data_source.dart';
@@ -17,9 +17,9 @@ class PokemonListDataSourceImplMock implements PokemonListDataSource {
   PokemonListDataSourceImplMock(this._httpFacade);
 
   @override
-  Future<List<PokemonModel>> call(
+  Future<List<Pokemon>> call(
       {Map<String, dynamic>? param, FromJson? fromJson}) async {
-    return [PokemonModel(name: "teste name", url: "link")];
+    return [Pokemon(name: "teste name", url: "link")];
   }
 }
 
@@ -29,12 +29,12 @@ class PokemonsRepositoryImplMock implements PokemonListRepository {
   PokemonsRepositoryImplMock(this._dataSource);
 
   @override
-  Future<List<PokemonModel>> call() async {
+  Future<List<Pokemon>> call() async {
     // ignore: unused_local_variable
-    List<PokemonModel> result = await _dataSource(
-        fromJson: (json) => PokemonsModel.fromJson(json).results!);
+    List<Pokemon> result = await _dataSource(
+        fromJson: (json) => PokemonList.fromJson(json).results!);
 
-    return [PokemonModel()];
+    return [Pokemon()];
   }
 }
 
@@ -44,7 +44,7 @@ class PokemonListUseCaseImplMock implements PokemonListUseCase {
   PokemonListUseCaseImplMock(this.pokemonsRepository);
 
   @override
-  Future<List<PokemonModel>> call() async => pokemonsRepository();
+  Future<List<Pokemon>> call() async => pokemonsRepository();
 }
 
 void main() {
@@ -60,11 +60,11 @@ void main() {
     pokemonListUseCase = PokemonListUseCaseImplMock(pokemonsRepository);
   });
 
-  group('pokemons repository List<PokemonModel> ', () {
-    test('pokemon repository call()=> List<PokemonModel>', () async {
+  group('pokemonListUseCase', () {
+    test('pokemonListUseCase call()=> List<Pokemon>', () async {
       var response = await pokemonListUseCase();
 
-      expect(response, isA<List<PokemonModel>>());
+      expect(response, isA<List<Pokemon>>());
     });
   });
 }
