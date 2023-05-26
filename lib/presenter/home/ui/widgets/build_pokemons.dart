@@ -9,8 +9,10 @@ class BuildPokemons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
+    return ListView.separated(
       itemCount: list.length,
+      separatorBuilder: (context, index) =>
+          const Divider(), // Define o divisor entre os itens
       itemBuilder: (context, index) {
         final item = list[index];
         return CardPokemon(item: item);

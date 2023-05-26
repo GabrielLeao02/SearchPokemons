@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:pokemon/presenter/home/ui/widgets/details_pokemon.dart';
 
@@ -19,10 +20,10 @@ class PokemonImageDetail extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
       ),
       alignment: Alignment.center,
-      child: Image.network(
-        widget.item.sprites!.backDefault!,
-        fit: BoxFit.fill,
+      child: Image(
         height: 150,
+        fit: BoxFit.fill,
+        image: CachedNetworkImageProvider(widget.item.sprites!.backDefault!),
       ),
     );
   }

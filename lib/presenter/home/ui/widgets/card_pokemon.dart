@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:pokemon/features/pokemon/domain/entities/pokemon_details.dart';
 import 'package:pokemon/presenter/home/ui/widgets/details_pokemon.dart';
@@ -19,7 +20,9 @@ class CardPokemon extends StatelessWidget {
         children: [
           Container(
             alignment: Alignment.center,
-            child: Image.network(item.sprites!.backDefault!, fit: BoxFit.fill),
+            child: Image(
+              image: CachedNetworkImageProvider(item.sprites!.backDefault!),
+            ),
           ),
           Text(
             item.name!,
@@ -54,8 +57,7 @@ class CardPokemon extends StatelessWidget {
     );
   }
 
-  void navigateToDetalhesScreen(
-      BuildContext context, PokemonDetails item) {
+  void navigateToDetalhesScreen(BuildContext context, PokemonDetails item) {
     Navigator.push(context,
         MaterialPageRoute(builder: (context) => DetailsPokemon(item: item)));
   }
