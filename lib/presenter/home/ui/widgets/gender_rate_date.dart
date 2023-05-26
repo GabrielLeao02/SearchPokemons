@@ -26,7 +26,7 @@ class GenderRate extends StatelessWidget {
             );
           } else if (genderRate == 8) {
             imageWidget = Image.asset(
-              'assets/female.png',
+              'assets/fame.png',
               height: 22,
             );
           } else {
