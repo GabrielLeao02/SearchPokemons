@@ -49,7 +49,7 @@ class _DetailsPokemonState extends State<DetailsPokemon> {
             children: [
               Center(
                 child: Image.asset(
-                  'assets/pokemon-png-logo.png',
+                  'assets/splash.png',
                   width: 100,
                   height: 60,
                 ),

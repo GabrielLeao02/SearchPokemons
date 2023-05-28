@@ -20,7 +20,7 @@ class App extends StatelessWidget {
         appBar: AppBar(
           title: Center(
             child: Image.asset(
-              'assets/pokemon-png-logo.png',
+              'assets/splash.png',
               width: 100,
               height: 60,
             ),
